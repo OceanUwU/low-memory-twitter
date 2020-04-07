@@ -26,12 +26,18 @@
         </div>
 
         <div class="jumbotron bg-primary rounded">
-            <h3 id="tweet.author">You must</h3>
-            <i id="tweet.date">enable</i>
+            <h3 id="tweet_author">You must</h3>
+            <i id="tweet_date">enable</i>
             <hr>
-            <p id="tweet.text">javascript.</p>
+            <div class="form-check">
+                <input type="checkbox" id="escape_tweet" class="form-check-input" checked="true" onclick="updatEscape();">
+                <label class="form-check-label" for="escape_tweet">Escape HTML of tweet</label>
+            </div>
+            <hr>
+            <p id="tweet_text">javascript.</p>
         </div>
         
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <script src="/main.js"></script>
     </body>
