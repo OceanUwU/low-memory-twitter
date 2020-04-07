@@ -4,7 +4,7 @@ socket.on('connect', () => {
     socket.on('tweetReceived', tweet => { //When the server posts a tweet,
         //show the tweet on the page.
         $('#tweet_text').html(tweet.text);
-        updatEscape();
+        if ($('#escape_tweet').prop('checked')) updatEscape(); //Escape the tweet if needed.
         $('#tweet_author').html(tweet.author);
         $('#tweet_date').html(new Date(tweet.date));
     });
