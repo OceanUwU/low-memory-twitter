@@ -19,7 +19,7 @@ io.on('connect', socket => { //When a client connects:
     socket.emit('tweetReceived', tweet); //Tell the connected client what the current tweet is.
 
     socket.on('tweet', tweetText => { //When a client sends a tweet:
-        if (tweetText.length > 140) return; //Reject the tweet if it's too long.
+        if (tweetText.length > 280) return; //Reject the tweet if it's too long.
         tweet = new Tweet(tweetText); //Set the current tweet to the newly created tweet.
         io.emit('tweetReceived', tweet); //Tell all other connected clients that the tweet has changed.
     });
