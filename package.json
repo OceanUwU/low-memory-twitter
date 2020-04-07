@@ -1,0 +1,25 @@
+{
+  "name": "low-memory-twitter",
+  "version": "1.0.0",
+  "description": "twitter, but it can only store one tweet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/975miles/low-memory-twitter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/975miles/low-memory-twitter/issues"
+  },
+  "homepage": "https://github.com/975miles/low-memory-twitter#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-random-name": "^1.0.1",
+    "socket.io": "^2.3.0"
+  }
+}
