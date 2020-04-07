@@ -1,15 +1,5 @@
 const socket = io(); //Make a websocket connection to the server.
 
-socket.on('connect', () => {
-    socket.on('tweetReceived', tweet => { //When the server posts a tweet,
-        //show the tweet on the page.
-        $('#tweet_text').html(tweet.text);
-        if ($('#escape_tweet').prop('checked')) updatEscape(); //Escape the tweet if needed.
-        $('#tweet_author').html(tweet.author);
-        $('#tweet_date').html(new Date(tweet.date));
-    });
-});
-
 function sendTweet() {
     let input = $('#new_tweet_text').val();
     if (input.length == 0) return; //If the user hasn't input anything, stop here.
@@ -35,12 +25,22 @@ function updatEscape() {
 }
 
 function main() {
+    updateCharacterCounter(); //Initialise the character counter.
+
     document.onkeydown = e => { //When a key is pressed,
         if (e.which == 13 && !e.shiftKey) //if the key pressed was enter, and shift wasn't being held,
             sendTweet(); //tweet.
     }
 
-    updateCharacterCounter(); //Initialise the character counter.
+    socket.on('connect', () => {
+        socket.on('tweetReceived', tweet => { //When the server posts a tweet,
+            //show the tweet on the page.
+            $('#tweet_text').html(tweet.text);
+            if ($('#escape_tweet').prop('checked')) updatEscape(); //Escape the tweet if needed.
+            $('#tweet_author').html(tweet.author);
+            $('#tweet_date').html(new Date(tweet.date));
+        });
+    });
 }
 
 main();
